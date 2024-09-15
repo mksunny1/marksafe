@@ -1,0 +1,44 @@
+{
+  "name": "marksafe",
+  "version": "1.0.0",
+  "description": "A simple alternative to using markdown to ensure safety of user-generated rich text in web applications",
+  "main": "marksafe.js",
+  "type": "module",
+  "typings": "./marksafe.d.ts",
+  "scripts": {
+    "test": "node --test",
+    "build": "npx tsc",
+    "doc": "npx typedoc --plugin typedoc-plugin-markdown --out ./docs ./*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mksunny1/marksafe.git"
+  },
+  "keywords": [
+    "Marksafe",
+    "Rich",
+    "text",
+    "formatted",
+    "content",
+    "user-generated",
+    "content",
+    "safety",
+    "power",
+    "markdown",
+    "alternative",
+    "html",
+    "markup"
+  ],
+  "author": "Mark Sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mksunny1/marksafe/issues"
+  },
+  "homepage": "https://github.com/mksunny1/marksafe#readme",
+  "devDependencies": {
+    "jsdom": "^25.0.0",
+    "typedoc": "^0.26.7",
+    "typedoc-plugin-markdown": "^4.2.7",
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "module": "esnext",
+      "target": "ESNext",
+      "declaration": true,
+      "moduleResolution": "Bundler",
+      "useDefineForClassFields": false
+    },
+    "include": [ "*.ts" ]
+  }
+  

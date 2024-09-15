@@ -1,0 +1,76 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.packagesIndex = packagesIndex;
+const markdown_1 = require("../../../libs/markdown");
+const utils_1 = require("../../../libs/utils");
+const path = __importStar(require("path"));
+function packagesIndex(model) {
+    const leftAlignHeadings = this.options.getValue('tableColumnSettings').leftAlignHeaders;
+    const md = [];
+    md.push((0, markdown_1.heading)(2, this.i18n.theme_packages()));
+    const includeVersion = model.children?.some((projectPackage) => Boolean(projectPackage.packageVersion));
+    const fileExtension = this.options.getValue('fileExtension');
+    const entryFileName = (0, utils_1.getFileNameWithExtension)(this.options.getValue('entryFileName'), fileExtension);
+    if (this.options.getValue('indexFormat').toLowerCase().includes('table')) {
+        const headers = [this.i18n.theme_name()];
+        if (includeVersion) {
+            headers.push(this.i18n.theme_version());
+        }
+        headers.push(this.i18n.theme_description());
+        const packageRows = model.children?.map((projectPackage) => {
+            const packageMeta = this.getPackageMetaData(projectPackage.name);
+            const urlTo = projectPackage.readme
+                ? `${path.dirname(projectPackage.url || '')}/${entryFileName}`
+                : projectPackage.url;
+            const rows = [
+                urlTo
+                    ? (0, markdown_1.link)((0, utils_1.escapeChars)(projectPackage.name), this.getRelativeUrl(urlTo))
+                    : (0, utils_1.escapeChars)(projectPackage.name),
+            ];
+            if (includeVersion) {
+                rows.push(projectPackage.packageVersion || '-');
+            }
+            rows.push(packageMeta?.description || '-');
+            return rows;
+        });
+        const output = this.options.getValue('indexFormat') === 'htmlTable'
+            ? (0, markdown_1.htmlTable)(headers, packageRows || [], leftAlignHeadings)
+            : (0, markdown_1.table)(headers, packageRows || [], leftAlignHeadings);
+        md.push(output);
+    }
+    else {
+        const packagesList = model.children?.map((projectPackage) => {
+            const urlTo = projectPackage.readme
+                ? `${path.dirname(projectPackage.url || '')}/${entryFileName}`
+                : projectPackage.url;
+            return urlTo
+                ? `- ${(0, markdown_1.link)(`${(0, utils_1.escapeChars)(projectPackage.name)}${projectPackage.packageVersion ? ` - v${projectPackage.packageVersion}` : ''}`, this.getRelativeUrl(urlTo))}`
+                : '';
+        });
+        md.push(packagesList?.join('\n') || '');
+    }
+    return md.join('\n\n');
+}
