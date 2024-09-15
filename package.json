@@ -1,6 +1,6 @@
 {
   "name": "marksafe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple alternative to using markdown to ensure safety of user-generated rich text in web applications",
   "main": "marksafe.js",
   "type": "module",

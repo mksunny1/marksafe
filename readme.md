@@ -70,6 +70,6 @@ The above example already shows everything you need to know about using marksafe
 5. Do the same thing for images placing the `src` (and optionally `alt`) as the text content of a `figure` element. We use `figure` instead of `img` because we can close a `figure`.
 6. Put the whole marksafe code inside any element that is not present within the marksafe code. For example if you put marksafe inside a `div`, any `divs` inside the marksafe code will render as simple text nodes.
 7. Just call `Marksafe.process` with the containing element as the sole argument. The previously escaped textContent inside the element becomes innerHTML instead.
-8. To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/docs/classes/Marksafe.md) or the source code which is under 100 lines. You can easily modify the allow-list of tags and add post-processing for specific tags using the JavaScript API. Post-processing is how we manage to sneak in the `href` attribute for `a` elements, convert `figure` elements to valid image elements and so on.
+8. To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md) or the source code which is under 100 lines. You can easily modify the allow-list of tags and add post-processing for specific tags using the JavaScript API. Post-processing is how we manage to sneak in the `href` attribute for `a` elements, convert `figure` elements to valid image elements and so on.
 
 

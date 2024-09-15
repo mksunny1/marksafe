@@ -29,7 +29,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-marksafe.ts:16
+[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L16)
 
 ## Methods
 
@@ -49,7 +49,7 @@ Special post-processing for links to set the href and link text.
 
 #### Defined in
 
-marksafe.ts:65
+[marksafe.ts:65](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L65)
 
 ***
 
@@ -70,7 +70,7 @@ and swap the figure elements for img elements.
 
 #### Defined in
 
-marksafe.ts:78
+[marksafe.ts:78](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L78)
 
 ***
 
@@ -111,4 +111,4 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-marksafe.ts:45
+[marksafe.ts:45](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L45)
