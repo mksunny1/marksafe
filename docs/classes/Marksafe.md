@@ -29,7 +29,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L23)
+[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L23)
 
 ***
 
@@ -39,7 +39,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L27)
+[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L27)
 
 ***
 
@@ -49,7 +49,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L22)
+[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L22)
 
 ***
 
@@ -59,7 +59,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L16)
+[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L16)
 
 ***
 
@@ -69,7 +69,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L26)
+[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L26)
 
 ## Methods
 
@@ -119,7 +119,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L60)
+[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L60)
 
 ***
 
@@ -139,17 +139,19 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:104](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L104)
+[marksafe.ts:107](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L107)
 
 ***
 
 ### processElement()
 
-> `static` **processElement**(`element`): `void`
+> `static` **processElement**(`element`, `top`): `void`
 
 #### Parameters
 
 • **element**: `Element`
+
+• **top**: `boolean` = `false`
 
 #### Returns
 
@@ -157,7 +159,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L76)
+[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L76)
 
 ***
 
@@ -177,4 +179,4 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L72)
+[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/798bdbd949bd80347242a848cfed43083811977a/marksafe.ts#L72)

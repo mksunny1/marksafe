@@ -51,6 +51,6 @@ export declare class Marksafe {
      */
     static process(element: Element): Element;
     static replace(text: string, tag: string): string;
-    static processElement(element: Element): void;
+    static processElement(element: Element, top?: boolean): void;
     static processAttrs(element: Element, text: string): void;
 }

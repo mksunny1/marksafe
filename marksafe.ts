@@ -66,14 +66,14 @@ export class Marksafe {
             text = this.replace(text, tag);
         }
         element.innerHTML = text;
-        this.processElement(element);
+        this.processElement(element, true);
         return element;   // returns the same input so we can use this transparently.
     }
     static replace(text: string, tag: string): string {
         const tempTag = this.selfTags.has(tag)? 'span': '';
         return text.replaceAll(`[${tag}]`, `<${tempTag || tag}${tempTag? ` data-real-tag="${tag}"`: ''}>`).replaceAll(`[/${tag}]`, `</${tempTag || tag}>`);
     }
-    static processElement(element: Element) {
+    static processElement(element: Element, top=false) {
         // potentially convert into 1 (this.selfTags) or multiple elements (this.tagSep)
         const tag = element.getAttribute('data-real-tag') || element.tagName.toLowerCase();
         
@@ -99,7 +99,10 @@ export class Marksafe {
                 lastElement.append(child);
             }
         }
-        element.replaceWith(...elements);
+        if (!top) element.replaceWith(...elements);
+        else {
+            element.replaceChildren(...lastElement.childNodes);
+        }
     }
     static processAttrs(element: Element, text: string) {
         const parts = text.split(this.attrSep);
