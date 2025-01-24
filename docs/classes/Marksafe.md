@@ -7,7 +7,7 @@
 # Class: Marksafe
 
 The Marksafe singleton class for parsing marksafe text. Text should already be escaped 
-and only contain markasfe tag specifies. Text should be the textContent of an 
+and only contain markasfe tag specifiers. Text should be the textContent of an 
 element so we simply call [Marksafe.process](Marksafe.md#process) with the element to convert the 
 textContent to innerHTML.
 
@@ -23,64 +23,65 @@ textContent to innerHTML.
 
 ## Properties
 
+### attrs
+
+> `static` **attrs**: `Set`\<`string`\>
+
+#### Defined in
+
+[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L23)
+
+***
+
+### attrSep
+
+> `static` **attrSep**: `string` = `',,'`
+
+#### Defined in
+
+[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L27)
+
+***
+
+### selfTags
+
+> `static` **selfTags**: `Set`\<`string`\>
+
+#### Defined in
+
+[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L22)
+
+***
+
 ### tags
 
 > `static` **tags**: `Set`\<`string`\>
 
 #### Defined in
 
-[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L16)
+[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L16)
+
+***
+
+### tagSep
+
+> `static` **tagSep**: `string` = `';;'`
+
+#### Defined in
+
+[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L26)
 
 ## Methods
-
-### a()
-
-> `static` **a**(`links`): `void`
-
-Special post-processing for links to set the href and link text.
-
-#### Parameters
-
-• **links**: `HTMLAnchorElement`[]
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[marksafe.ts:65](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L65)
-
-***
-
-### figure()
-
-> `static` **figure**(`figures`): `void`
-
-Special post-processing for images to set the src and optional alt 
-and swap the figure elements for img elements.
-
-#### Parameters
-
-• **figures**: `HTMLElement`[]
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[marksafe.ts:78](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L78)
-
-***
 
 ### process()
 
 > `static` **process**(`element`): `Element`
 
 Converts the marksafe-formated textContent of the element into HTML. Marksafe is 
-simply HTML with no attributes, angle brackets (`< and >`) replaced with square brackets 
-(`[ and ]`) and a set of permitted tags.
+simply HTML with attributes specified within the content, angle 
+brackets (`< and >`) replaced with square brackets 
+(`[ and ]`) and only a set of permitted tags and attributes. 
+It also features a tag separator to make the code more concise.
 
 #### Parameters
 
@@ -100,15 +101,80 @@ document.body.innerHTML = `
      This is the first paragraph. &quot;p&quot; tag is allowed
   [/p]
   [p]
-      Links like [a]https://github.com/mksunny1/marksafe|this[/a] can be present.
+      Links like [a]href=https://github.com/mksunny1/marksafe2,,this[/a] can be present.
+  ;;
+      Yet another paragraph
+  ;;
+      class=bolder,,And another one with a class attribute...
   [/p]
+  [img]
+      src=https://images.com/first.png,,alt=First image,,width=100%,,height=200px,,
+  [/img]
 </main>
 `
 Marksafe.process(document.querySelector('main'));
 console.log(document.querySelector('a').textContent);  // this
-console.log(document.querySelector('a').href);         // https://github.com/mksunny1/marksafe
+console.log(document.querySelector('a').href);         // https://github.com/mksunny1/marksafe2
 ```
 
 #### Defined in
 
-[marksafe.ts:45](https://github.com/mksunny1/marksafe/blob/2f61835907eca2e5a815bd1c9cba30fd8cc000bf/marksafe.ts#L45)
+[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L60)
+
+***
+
+### processAttrs()
+
+> `static` **processAttrs**(`element`, `text`): `void`
+
+#### Parameters
+
+• **element**: `Element`
+
+• **text**: `string`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[marksafe.ts:104](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L104)
+
+***
+
+### processElement()
+
+> `static` **processElement**(`element`): `void`
+
+#### Parameters
+
+• **element**: `Element`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L76)
+
+***
+
+### replace()
+
+> `static` **replace**(`text`, `tag`): `string`
+
+#### Parameters
+
+• **text**: `string`
+
+• **tag**: `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/6c66e9a3577d28f4bf1659d7801c6b31d0efc3c4/marksafe.ts#L72)
