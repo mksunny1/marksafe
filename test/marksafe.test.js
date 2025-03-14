@@ -38,6 +38,7 @@ describe("marksafe.Marksafe", () => {
 
     it("Should process marksafe2 text correctly.", (t) => {
         Marksafe.process(body.firstElementChild);
+        console.log(body.firstElementChild.outerHTML);
 
         assert.equal(body.querySelector('a').href.trim(), 'https://github.com/mksunny1/marksafe2');
         assert.equal(body.querySelector('img').src.trim(), 'https://github.com/mksunny1/marksafe2/logo.png');
