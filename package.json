@@ -1,10 +1,11 @@
 {
   "name": "marksafe",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "A simple alternative to using markdown to ensure safety of user-generated rich text in web applications",
   "main": "marksafe.js",
   "type": "module",
   "typings": "./marksafe.d.ts",
+  "files": ["marksafe.js", "marksafe.d.ts"],
   "scripts": {
     "test": "node --test",
     "build": "npx tsc",
