@@ -27,9 +27,11 @@ textContent to innerHTML.
 
 > `static` **attrs**: `Set`\<`string`\>
 
+Get or set the list of allowed attribute names.
+
 #### Defined in
 
-[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L23)
+[marksafe.ts:33](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L33)
 
 ***
 
@@ -37,9 +39,11 @@ textContent to innerHTML.
 
 > `static` **attrSep**: `string` = `',,'`
 
+Separator for attributes. Also separates the last attribute from the text content.
+
 #### Defined in
 
-[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L27)
+[marksafe.ts:45](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L45)
 
 ***
 
@@ -47,9 +51,11 @@ textContent to innerHTML.
 
 > `static` **selfTags**: `Set`\<`string`\>
 
+Get or set the list of self-closing tags like `img` and `br`.
+
 #### Defined in
 
-[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L22)
+[marksafe.ts:28](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L28)
 
 ***
 
@@ -57,9 +63,11 @@ textContent to innerHTML.
 
 > `static` **tags**: `Set`\<`string`\>
 
+Get or set the list of allowed tag names.
+
 #### Defined in
 
-[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L16)
+[marksafe.ts:19](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L19)
 
 ***
 
@@ -67,9 +75,11 @@ textContent to innerHTML.
 
 > `static` **tagSep**: `string` = `';;'`
 
+Separator for consecutive elements of the same type.
+
 #### Defined in
 
-[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L26)
+[marksafe.ts:40](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L40)
 
 ## Methods
 
@@ -86,6 +96,8 @@ It also features a tag separator to make the code more concise.
 #### Parameters
 
 • **element**: `Element`
+
+The element to process
 
 #### Returns
 
@@ -119,7 +131,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L60)
+[marksafe.ts:78](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L78)
 
 ***
 
@@ -127,11 +139,17 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 > `static` **processAttrs**(`element`, `text`): `void`
 
+Processes and xxtracts any attributes specified within the text content of the element.
+
 #### Parameters
 
 • **element**: `Element`
 
+The element to process
+
 • **text**: `string`
+
+The input textContent of the element containing attributes and/or intended textContent.
 
 #### Returns
 
@@ -139,7 +157,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:107](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L107)
+[marksafe.ts:147](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L147)
 
 ***
 
@@ -147,11 +165,19 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 > `static` **processElement**(`element`, `top`): `void`
 
+Runs final processing of the elements (recursively from the top down) first to replace any intermediate 
+elements with their correct final elements and then to proccess all attributes and remove them from 
+the text content where they are specified.
+
 #### Parameters
 
 • **element**: `Element`
 
+The element to process
+
 • **top**: `boolean` = `false`
+
+Whether this is the top-level element.
 
 #### Returns
 
@@ -159,7 +185,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L76)
+[marksafe.ts:110](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L110)
 
 ***
 
@@ -167,16 +193,25 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 > `static` **replace**(`text`, `tag`): `string`
 
+Replaces the opening ([tag]) and closing ([/tag]) square brackets for the specified tag in the text 
+with the angle brackets. This does not process attributes.
+
 #### Parameters
 
 • **text**: `string`
 
+The raw or partially processed Marksafe text before the tag is processed
+
 • **tag**: `string`
+
+The tag to be processed (converted from Marksafe syntax to HTML syntax)
 
 #### Returns
 
 `string`
 
+The same text with all instances of the tag converted from Marksafe Syntax to HTML syntax
+
 #### Defined in
 
-[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L72)
+[marksafe.ts:98](https://github.com/mksunny1/marksafe/blob/81fd0c19de9eb860948c9f5e72a21a3188555571/marksafe.ts#L98)

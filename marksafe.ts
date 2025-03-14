@@ -13,17 +13,35 @@
  *  
  */
 export class Marksafe {
+    /**
+     * Get or set the list of allowed tag names.
+     */
     static tags = new Set([
         'a', 'img', 'figure', 'p', 'em', 'b', 'mark', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'ul', 
         'ol', 'details', 'summary', 'table', 'thead', 'tbody', 'tfoot', 'tr', 'td', 'dl', 'dt', 'dd', 
         'span', 'div', 'small', 'sup', 'sub', 'abbr', 'aside', 'section', 'article', 'button', 
         'blockquote', 'q', 'address', 'code', 'header', 'footer', 'hr'
     ]);
+    /**
+     * Get or set the list of self-closing tags like `img` and `br`.
+     */
     static selfTags = new Set(['img', 'hr']);   // form field tags like input are not allowed.
+
+    /**
+     * Get or set the list of allowed attribute names.
+     */
     static attrs = new Set([
         'href', 'src', 'class', 'style', 'width', 'height', 'alt', 'colspan', 'rowspan', 'title'
     ]);
+
+    /**
+     * Separator for consecutive elements of the same type.
+     */
     static tagSep = ';;';
+
+    /**
+     * Separator for attributes. Also separates the last attribute from the text content. 
+     */
     static attrSep = ',,';
     /**
      * Converts the marksafe-formated textContent of the element into HTML. Marksafe is 
@@ -55,7 +73,7 @@ export class Marksafe {
      * console.log(document.querySelector('a').textContent);  // this
      * console.log(document.querySelector('a').href);         // https://github.com/mksunny1/marksafe2
      * 
-     * @param element 
+     * @param element The element to process
      */
     static process(element: Element) {
         const allowed = this.tags;
@@ -69,10 +87,26 @@ export class Marksafe {
         this.processElement(element, true);
         return element;   // returns the same input so we can use this transparently.
     }
+    /**
+     * Replaces the opening ([tag]) and closing ([/tag]) square brackets for the specified tag in the text 
+     * with the angle brackets. This does not process attributes.
+     * 
+     * @param text The raw or partially processed Marksafe text before the tag is processed
+     * @param tag  The tag to be processed (converted from Marksafe syntax to HTML syntax)
+     * @returns The same text with all instances of the tag converted from Marksafe Syntax to HTML syntax
+     */
     static replace(text: string, tag: string): string {
         const tempTag = this.selfTags.has(tag)? 'span': '';
         return text.replaceAll(`[${tag}]`, `<${tempTag || tag}${tempTag? ` data-real-tag="${tag}"`: ''}>`).replaceAll(`[/${tag}]`, `</${tempTag || tag}>`);
     }
+    /**
+     * Runs final processing of the elements (recursively from the top down) first to replace any intermediate 
+     * elements with their correct final elements and then to proccess all attributes and remove them from 
+     * the text content where they are specified.
+     * 
+     * @param element The element to process
+     * @param top Whether this is the top-level element.
+     */
     static processElement(element: Element, top=false) {
         // potentially convert into 1 (this.selfTags) or multiple elements (this.tagSep)
         const tag = element.getAttribute('data-real-tag') || element.tagName.toLowerCase();
@@ -104,6 +138,12 @@ export class Marksafe {
             element.replaceChildren(...lastElement.childNodes);
         }
     }
+    /**
+     * Processes and xxtracts any attributes specified within the text content of the element. 
+     * 
+     * @param element The element to process
+     * @param text The input textContent of the element containing attributes and/or intended textContent.
+     */
     static processAttrs(element: Element, text: string) {
         const parts = text.split(this.attrSep);
         let name: string, value: string[];

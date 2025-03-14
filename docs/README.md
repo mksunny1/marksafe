@@ -99,6 +99,6 @@ The above example shows all you need to know to use marksafe effectively. These 
 7. Just call `Marksafe.process` with the containing element as the sole argument. The previously escaped textContent inside the element becomes innerHTML instead.
 8. You can easily modify the allow-list of tags and attributes or even extend the Marksafe class to further customise Marksafe according to your needs.
 
-To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md) or the source code which is 115 lines. 
+To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md). 
 
 Cheers and kindly share and promote this. You can also [sponsor me on GitHub](https://github.com/sponsors/mksunny1). It's important...
