@@ -100,6 +100,6 @@ The above example shows all you need to know to use marksafe effectively. These 
 
 To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md) or the source code which is 115 lines. 
 
-Cheers and kindly share and promote this. You can also sponsor me on GitHub. It's important...
+Cheers and kindly share and promote this. You can also [sponsor me on GitHub](https://github.com/sponsors/mksunny1). It's important...
 
 

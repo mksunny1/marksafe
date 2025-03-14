@@ -29,7 +29,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L23)
+[marksafe.ts:23](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L23)
 
 ***
 
@@ -39,7 +39,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L27)
+[marksafe.ts:27](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L27)
 
 ***
 
@@ -49,7 +49,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L22)
+[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L22)
 
 ***
 
@@ -59,7 +59,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L16)
+[marksafe.ts:16](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L16)
 
 ***
 
@@ -69,7 +69,7 @@ textContent to innerHTML.
 
 #### Defined in
 
-[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L26)
+[marksafe.ts:26](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L26)
 
 ## Methods
 
@@ -119,7 +119,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L60)
+[marksafe.ts:60](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L60)
 
 ***
 
@@ -139,7 +139,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:107](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L107)
+[marksafe.ts:107](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L107)
 
 ***
 
@@ -159,7 +159,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L76)
+[marksafe.ts:76](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L76)
 
 ***
 
@@ -179,4 +179,4 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/8e6319b249465de3cc0da1dcef32b91eb097d579/marksafe.ts#L72)
+[marksafe.ts:72](https://github.com/mksunny1/marksafe/blob/7d050cd4d2f779b6a4f5067caed0e0ce1da91f0b/marksafe.ts#L72)
