@@ -31,7 +31,7 @@ Get or set the list of allowed attribute names.
 
 #### Defined in
 
-[marksafe.ts:36](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L36)
+[marksafe.ts:36](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L36)
 
 ***
 
@@ -43,7 +43,7 @@ Separator for attributes. Also separates the last attribute from the text conten
 
 #### Defined in
 
-[marksafe.ts:48](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L48)
+[marksafe.ts:48](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L48)
 
 ***
 
@@ -55,7 +55,7 @@ Get or set the list of self-closing tags like `img` and `br`.
 
 #### Defined in
 
-[marksafe.ts:31](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L31)
+[marksafe.ts:31](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L31)
 
 ***
 
@@ -97,7 +97,7 @@ Get or set the list of self-closing tags like `img` and `br`.
 
 #### Defined in
 
-[marksafe.ts:49](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L49)
+[marksafe.ts:49](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L49)
 
 ***
 
@@ -109,7 +109,7 @@ Get or set the list of allowed tag names.
 
 #### Defined in
 
-[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L22)
+[marksafe.ts:22](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L22)
 
 ***
 
@@ -121,7 +121,7 @@ Separator for consecutive elements of the same type.
 
 #### Defined in
 
-[marksafe.ts:43](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L43)
+[marksafe.ts:43](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L43)
 
 ## Methods
 
@@ -173,7 +173,7 @@ console.log(document.querySelector('a').href);         // https://github.com/mks
 
 #### Defined in
 
-[marksafe.ts:91](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L91)
+[marksafe.ts:91](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L91)
 
 ***
 
@@ -199,7 +199,7 @@ The input textContent of the element containing attributes and/or intended textC
 
 #### Defined in
 
-[marksafe.ts:163](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L163)
+[marksafe.ts:163](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L163)
 
 ***
 
@@ -227,7 +227,7 @@ Whether this is the top-level element.
 
 #### Defined in
 
-[marksafe.ts:126](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L126)
+[marksafe.ts:126](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L126)
 
 ***
 
@@ -256,4 +256,4 @@ The same text with all instances of the tag converted from Marksafe Syntax to HT
 
 #### Defined in
 
-[marksafe.ts:114](https://github.com/mksunny1/marksafe/blob/11798d2464ec205c737988e946d2d66d290e744b/marksafe.ts#L114)
+[marksafe.ts:114](https://github.com/mksunny1/marksafe/blob/f9c4b068182b7f80efc2374f10ae73ef0d6ef90d/marksafe.ts#L114)

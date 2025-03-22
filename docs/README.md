@@ -235,6 +235,25 @@ Marksafe allows customization of default delimiters and shorthand syntax. For ex
 
 The complete API documentation can be found [here](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md).
 
+## Supporting Marksafe  
+
+Marksafe is an open-source project aimed at providing a powerful, flexible, and safe alternative to HTML and Markdown. If you find Marksafe useful, you can support the project in the following ways:  
+
+- **Give a Star** ⭐ on [GitHub](https://github.com/mksunny1/marksafe) to help increase its visibility.  
+- **Share** Marksafe with your friends, colleagues, and communities.  
+- **Provide Feedback** 💬 by reporting issues, suggesting improvements, or discussing ideas in the [GitHub Issues](https://github.com/mksunny1/marksafe/issues).  
+- **Contribute** 💻 by submitting pull requests, improving documentation, or adding new features.  
+
+---
+
+## Sponsoring Marksafe  
+
+Developing and maintaining Marksafe takes time and effort. If you'd like to support the project financially, you can become a sponsor. Your contributions will help ensure continued development, improvements, and support for Marksafe.  
+
+You can sponsor the project on [**GitHub Sponsors**](https://github.com/sponsors/mksunny1)  
+
+Every bit of support counts and is greatly appreciated!
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
