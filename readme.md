@@ -1,28 +1,182 @@
-# Marksafe
+# Marksafe - Secure, Concise, and Flexible Markup Language
 
-Marksafe is a simple and pragmatic library for allowing user-generated content in a web application. It is an alternative to makdown which already guarantees safety of generated markup without the need for HTML sanitizers. 
+Marksafe is a simple yet powerful syntax for writing HTML-like markup in a secure and concise way. It’s designed to make content authoring easier by providing a more flexible syntax and ensuring security by avoiding common pitfalls like XSS vulnerabilities.
 
-Marksafe is almost like regular HTML but maintains an allow-list of tag and attribute names. These can be easily modified to suit particular situations.
+## Features
 
-Due to how marksafe functions, you have to run it in the browser. But fear not because this is a tiny library that weighs in at only 5kb unminified.
+- **Concise Syntax:** Shorten your code with simplified tag names and structure.
+- **Security:** Prevent XSS vulnerabilities by avoiding angle brackets and special characters in HTML.
+- **Compatibility:** Easily convert Marksafe to HTML and Markdown.
+- **Shorthands:** Use shorthand notations for commonly used HTML elements, such as:
+  - `[uli]` for `[ul][li]` (unordered list items)
+  - `[oli]` for `[ol][li]` (ordered list items)
+  - `[*]` for `[strong]` (bold text)
+  - `[bq]` for `[blockquote]` (blockquote)
 
+## Marksafe Syntax
+
+### Basic Structure
+
+- Tags are enclosed in square brackets `[ ]`.
+- Closing tags are wrapped with `/` at the start: `[tag]` becomes `[/tag]`.
+- Inline elements (like links) and block elements (like paragraphs) are treated similarly but retain their block-level behavior.
+
+### Basic Elements
+```marksafe
+[h1]Heading[/h1]
+[p]This is a paragraph.[/p]
+[bq]This is a blockquote.[/bq]
+```
+
+### Lists
+```marksafe
+[uli]Item 1;;Item 2;;Item 3[/uli]
+[oli]First;;Second;;Third[/oli]
+```
+
+### Links and Images
+```marksafe
+[a]href=example.com,,Click here[/a]
+[img]src=example.jpg,,alt=An example image,,[/img]
+```
+
+### Tables
+```marksafe
+[table]
+  [tr][th]Header 1;;Header 2;;Header 3[/th][/tr]
+  [tr][td]Row 1 Col 1;;Row 1 Col 2;;Row 1 Col 3[/td][/tr]
+  [tr][td]Row 2 Col 1;;Row 2 Col 2;;Row 2 Col 3[/td][/tr]
+[/table]
+```
+
+### Example
+
+```markdown
+[h1]Shopping List[/h1]
+
+[p]Here’s a list of things to buy:[/p]
+
+[uli]Apples;;Bananas;;Carrots
+  [uli]Carrot A;;Carrot B
+    [uli]Carrot B1;;Carrot B2[/uli]
+  [/uli]
+;;Dates[/uli]
+
+[p]For more details, visit [a]href=https://example.com,,Example[/a].[/p]
+
+[bq]This is a blockquote.[/bq]
+```
+
+### Shorthands
+- **`[uli]`** for `[ul][li]` (unordered list items).
+- **`[oli]`** for `[ol][li]` (ordered list items).
+- **`[*]`** for `[strong]` (bold text).
+- **`[bq]`** for `[blockquote]` (blockquote).
+
+### Self-closing Elements
+
+- For elements like `img`, the attributes and content are written inside the tag with a special delimiter `,,` to separate them.
+
+```markdown
+[img]src=example.jpg,,alt=An example image,,[/img]
+```
+
+### Key Conversion Points
+
+- The following tags are expanded for clarity:
+  - `[uli]` expands to `[ul][li]`.
+  - `[oli]` expands to `[ol][li]`.
+  - `[*]` expands to `[strong]`.
+  - `[bq]` expands to `[blockquote]`.
+
+## Delimiters and Escaping
+- Consecutive elements of the same type can be separated by `;;`.
+- Attributes and content inside a tag are separated by `,,`.
+- If a delimiter (`;;` or `,,`) is intended to be part of the content or an attribute, it must be escaped using `\`.
+
+## Customization
+Marksafe allows integrators to modify delimiters and add/remove shorthands as needed.
+
+## Security Benefits
+
+Marksafe's design eliminates the need for angle brackets, making it safe for embedding content without the risk of cross-site scripting (XSS) attacks. All attributes are safely handled within the body of the tag.
+
+## Converting to HTML
+
+Marksafe can be easily converted to valid HTML by replacing its syntax with standard HTML tags.
+
+Example:
+
+```markdown
+[h1]Shopping List[/h1]
+
+[uli]Apples;;Bananas;;Carrots;;Dates[/uli]
+```
+
+Converts to:
+
+```html
+<h1>Shopping List</h1>
+<ul>
+  <li>Apples</li>
+  <li>Bananas</li>
+  <li>Carrots</li>
+  <li>Dates</li>
+</ul>
+```
+
+## Converting to Markdown
+
+You can also convert Marksafe to Markdown, which is useful for simpler content structures.
+
+Example:
+
+```markdown
+[h1]Shopping List[/h1]
+[uli]Apples;;Bananas;;Carrots;;Dates[/uli]
+```
+
+Converts to:
+
+```markdown
+# Shopping List
+- Apples
+- Bananas
+- Carrots
+- Dates
+```
 
 ## Installation
 
-### NPM
+To use Marksafe in your project:
 
-`npm i marksafe`
+1. Install via `npm`:
 
+   ```bash
+   npm install Marksafe
+   ```
 
-## Importing
+2. Alternatively, clone the repository:
 
-### NPM
+   ```bash
+   git clone https://github.com/mksunny1/marksafe.git
+   ```
 
-`import { Marksafe } from "marksafe"`
+Once installed, you can integrate Marksafe into your content authoring or markdown processing systems.
 
-### CDN
+## Usage
 
-`import { Marksafe } from "https://cdn.jsdelivr.net/npm/marksafe/marksafe.js"`
+Marksafe currently only works in the browser. Here’s an example of how to process Marksafe code:
+
+import { Marksafe } from 'Marksafe';
+
+const input = "[h1]Hello, World![/h1]";
+const output = Marksafe.process(input);
+console.log(output); // Outputs: <h1>Hello, World!</h1>
+
+Customizing Marksafe
+
+Marksafe allows customization of default delimiters and shorthand syntax. For example, you can redefine the ,, delimiter or add/remove shorthand tags.
 
 
 ## Usage
@@ -37,10 +191,6 @@ Due to how marksafe functions, you have to run it in the browser. But fear not b
             This is the first paragraph. &quot;p&quot; tag is allowed
         ;;
             Links like [a]href=https://github.com/mksunny1/marksafe,,this[/a] can be present.
-        ;;
-            Images like [img]src=https://github.com/mksunny1/marksafe/logo.png,,alt=marksafe logo[/img] can also be present.
-        ;;
-            ... Many more tags are allowed
         [/p]
         [section]
             Althogh [b]section[/b] tag is allowed, this will not parse because the whole marksafe content is inside a [b]section[/b]. As a result, parts of the section outside the internal nodes will appear as [b]text[/b] nodes in the generated markup instead of being part of an output [b]section[/b] node.
@@ -53,7 +203,6 @@ Due to how marksafe functions, you have to run it in the browser. But fear not b
 ```
 
 ```js
-    // Marksafe.tags.add('footer');    // we can trivially add/remove allowed tags, but this line is no longer needed since `footer` is allowed by default.
     Marksafe.process(document.querySelector('#ms'));
 ```
 
@@ -69,12 +218,6 @@ Due to how marksafe functions, you have to run it in the browser. But fear not b
     <p>
         Links like <a href="https://github.com/mksunny1/marksafe2">this</a> can be present.
     </p>
-    <p>
-        Images like <img src="https://github.com/mksunny1/marksafe2/logo.png" alt="marksafe2 logo"> can also be present.
-    </p>
-    <p>
-        ... Many more tags are allowed
-    </p>
     [section]
         Althogh <b>section</b> tag is allowed, this will not parse because the whole marksafe2 content is inside a <b>section</b>. As a result, parts of the section outside the internal nodes will appear as <b>text</b> nodes in the generated markup instead of being part of an output <b>section</b> node.
     [/section]
@@ -85,21 +228,11 @@ Due to how marksafe functions, you have to run it in the browser. But fear not b
 
 ```
 
-## Documentation
+## API Documention
 
-The above example shows all you need to know to use marksafe effectively. These are the points to note:
+The complete API documentation can be found [here](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md).
 
-1. Use marksafe in the browser.
-2. Marksafe is just html with the angle brackets `(< and >)` replaced with square ones `([ and ])`. 
-3. Every HTML thing (like quotes) should be escaped. Just escape the whole marksafe code as untrusted HTML.
-4. Marksafe v2 now supports an allow-list of attribute names. Place the attributes in the content area separated by `Marksafe.attrSep (',,' by default)`. Use the same separator to separate the attributes from the actual content as shown in the example. If the final element only has attributes, the content you enter in marksafe code should end with the separator. For example `[div]class=flex,,title=The title,,[/div]` or  `[div]class=flex,,title=The title,,The content[/div]`. Attributes do not require quotes.
-5. Marksafe v2 also now supports a shorthand syntax to reduce boilerplate, also seen in the example with the 4 `p` tags written like a single one. Another example is `[a]href=link1,,text 1;;href=link2,,text2[/a]`
-6. Put the whole marksafe code inside any element that is not present within the marksafe code. For example if you put marksafe inside a `div`, any `divs` inside the marksafe code will render as simple text nodes.
-7. Just call `Marksafe.process` with the containing element as the sole argument. The previously escaped textContent inside the element becomes innerHTML instead.
-8. You can easily modify the allow-list of tags and attributes or even extend the Marksafe class to further customise Marksafe according to your needs.
+## License
 
-To learn more you can read the [API docs](https://github.com/mksunny1/marksafe/blob/main/docs/classes/Marksafe.md). 
-
-Cheers and kindly share and promote this. You can also [sponsor me on GitHub](https://github.com/sponsors/mksunny1). It's important...
-
+MIT License. See [LICENSE](LICENSE) for details.
 

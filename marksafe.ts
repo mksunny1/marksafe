@@ -1,3 +1,6 @@
+const tagSep = 'fgkjgiuegigu598';
+const attrSep = 'r98w938g737gy247';
+
 /**
  * A powerful, safe and simple library to enable rich user-generated text in 
  * web applications
@@ -43,6 +46,16 @@ export class Marksafe {
      * Separator for attributes. Also separates the last attribute from the text content. 
      */
     static attrSep = ',,';
+    static shorthands = {
+        '[*]': '[strong]',
+        '[/*]': '[/strong]',
+        '[bq]': '[blockquote]',
+        '[/bq]': '[/blockquote]',
+        '[uli]': '[ul][li]',
+        '[/uli]': '[/li][/ul]',
+        '[oli]': '[ol][li]',
+        '[/oli]': '[/li][/ol]'
+    };
     /**
      * Converts the marksafe-formated textContent of the element into HTML. Marksafe is 
      * simply HTML with attributes specified within the content, angle 
@@ -78,7 +91,10 @@ export class Marksafe {
     static process(element: Element) {
         const allowed = this.tags;
         const disallowed = element.tagName;
-        let text = element.textContent;
+        let text = element.textContent.replaceAll(`\\${this.tagSep}`, tagSep).replaceAll(`\\${this.attrSep}`, attrSep);
+        for (let [key, value] of Object.entries(this.shorthands)) {
+            text = text.replaceAll(key, value);
+        }
         for (let tag of allowed) {
             if (tag.toUpperCase() === disallowed) continue;
             text = this.replace(text, tag);
@@ -150,10 +166,10 @@ export class Marksafe {
         for (let i = 0; i < parts.length - 1; i++) {
             [name, ...value] = parts[i].split('=');
             name = name.trim();
-            if (this.attrs.has(name)) element.setAttribute(name, value.join('='));
+            if (this.attrs.has(name)) element.setAttribute(name, value.join('=').replaceAll(tagSep, this.tagSep).replaceAll(attrSep, this.attrSep));
         }
         const lastPart = parts[parts.length - 1];
-        if (lastPart.trim()) element.append(lastPart);   // set textContent...
+        if (lastPart.trim()) element.append(lastPart.replaceAll(tagSep, this.tagSep).replaceAll(attrSep, this.attrSep));   // set textContent...
     }
 }
 
